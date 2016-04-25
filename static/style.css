@@ -1,0 +1,17 @@
+#list {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+#list li, #adding-input {
+  border-radius: 5px;
+  background-color: #e3e3e3;
+  width: 230px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#adding-input {
+	background-color: #fff;
+}
+
