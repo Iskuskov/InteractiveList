@@ -1,17 +1,38 @@
-#list {
-	list-style-type: none;
-	padding-left: 0;
+.list {
+    background-color: #478BFF;
+    text-align: center;
+    cursor: pointer;
+	font-family: Geneva,Arial,Helvetica,sans-serif;
+    border: 1px solid gray;
 }
 
-#list li, #adding-input {
-  border-radius: 5px;
-  background-color: #e3e3e3;
-  width: 230px;
-  margin: 5px;
-  padding: 5px;
+#list {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+#list li {
+	border-radius: 5px;
+	width: 230px;
+	height: 20px;
+    line-height: 20px;
+	margin: 5px;
+	padding: 5px;
 }
 
 #adding-input {
+	border-radius: 5px;
 	background-color: #fff;
+	width: 230px;
+	margin: 5px;
+	padding: 5px;
 }
 
+.highlight { 
+	line-height: 1.2em; 
+	border: 1px dotted red;
+    background-color: lightblue;
+	margin: 5px;
+	padding: 5px;
+}
