@@ -1,5 +1,3 @@
-var data = JSON.parse(localStorage.getItem("listData")) || {};
-
 var generateElement = function(index, text) {
 	var parent = $("#list");
 	var wrapper = $("<li />", {
@@ -10,26 +8,19 @@ var generateElement = function(index, text) {
 
 $(document).on('ready', function() {
 
-	$.each(data, function (index, text) {
-		generateElement(index, text);
-	});
+	var socket = new WebSocket("ws://localhost:8081");
+
+	socket.onmessage = function(event) {
+		var message = JSON.parse(event.data);
+		generateElement(message.id, message.text);
+	};
 
 	$("form").on("submit", function(e) {
 		e.preventDefault();
 		var text = $("#adding-input").val();
-		if (text.length == 0) {
-			return;
-		}
-		id = new Date().getTime();
-		generateElement(id, text);
-		
-		data[id] = text;
-        localStorage.setItem("listData", JSON.stringify(data));
-		
+		if (text.length == 0) return;
 		$("#adding-input").val('');
+		socket.send(text);
 	})
-
-
-	
 });
 
